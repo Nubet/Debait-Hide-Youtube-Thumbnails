@@ -2,6 +2,7 @@
 html:not([data-hyt-ready]) ytd-thumbnail,
 html:not([data-hyt-ready]) ytd-playlist-thumbnail,
 html:not([data-hyt-ready]) yt-thumbnail-view-model,
+html:not([data-hyt-ready]) .ytLockupViewModelContentImage,
 html:not([data-hyt-ready]) .yt-lockup-view-model-wiz__content-image,
 html:not([data-hyt-ready]) .shortsLockupViewModelHostThumbnailContainer,
 html:not([data-hyt-ready]) .ytd-display-ad-renderer #media-container {
@@ -11,6 +12,7 @@ html:not([data-hyt-ready]) .ytd-display-ad-renderer #media-container {
 html[data-hyt-mode="hidden"] ytd-thumbnail,
 html[data-hyt-mode="hidden"] ytd-playlist-thumbnail,
 html[data-hyt-mode="hidden"] yt-thumbnail-view-model,
+html[data-hyt-mode="hidden"] .ytLockupViewModelContentImage,
 html[data-hyt-mode="hidden"] .yt-lockup-view-model-wiz__content-image,
 html[data-hyt-mode="hidden"] .shortsLockupViewModelHostThumbnailContainer,
 html[data-hyt-mode="hidden"] .ytd-display-ad-renderer #media-container {
@@ -20,6 +22,10 @@ html[data-hyt-mode="hidden"] .ytd-display-ad-renderer #media-container {
 html[data-hyt-mode="hidden-except-hover"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="hidden-except-hover"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="hidden-except-hover"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) .ytLockupViewModelContentImage,
+html[data-hyt-mode="hidden-except-hover"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) .yt-lockup-view-model-wiz__content-image,
+html[data-hyt-mode="hidden-except-hover"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model,
 html[data-hyt-mode="hidden-except-hover"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model,
 html[data-hyt-mode="hidden-except-hover"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) .yt-lockup-view-model-wiz__content-image,
 html[data-hyt-mode="hidden-except-hover"] ytm-shorts-lockup-view-model:not([data-hyt-hover-revealed="true"]) .shortsLockupViewModelHostThumbnailContainer {
@@ -35,6 +41,8 @@ html[data-hyt-mode="blurred"] ytd-rich-item-renderer:not([data-hyt-hover-reveale
 html[data-hyt-mode="blurred"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) img,
 html[data-hyt-mode="blurred"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) img,
 html[data-hyt-mode="blurred"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) img,
+html[data-hyt-mode="blurred"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="blurred"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model,
 html[data-hyt-mode="blurred"] ytm-shorts-lockup-view-model:not([data-hyt-hover-revealed="true"]) img {
   filter: blur(16px) !important;
 }
@@ -43,6 +51,8 @@ html[data-hyt-mode="solid-color"] ytd-rich-item-renderer:not([data-hyt-hover-rev
 html[data-hyt-mode="solid-color"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="solid-color"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="solid-color"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="solid-color"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="solid-color"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model,
 html[data-hyt-mode="solid-color"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model,
 html[data-hyt-mode="solid-color"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) .yt-lockup-view-model-wiz__content-image,
 html[data-hyt-mode="solid-color"] ytm-shorts-lockup-view-model:not([data-hyt-hover-revealed="true"]) .shortsLockupViewModelHostThumbnailContainer {
@@ -53,6 +63,7 @@ html[data-hyt-mode="solid-color"] ytm-shorts-lockup-view-model:not([data-hyt-hov
 html[data-hyt-mode="solid-color"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail #thumbnail,
 html[data-hyt-mode="solid-color"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail #thumbnail,
 html[data-hyt-mode="solid-color"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail #thumbnail,
+html[data-hyt-mode="solid-color"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail #thumbnail,
 html[data-hyt-mode="solid-color"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail #thumbnail {
   background-color: var(--hyt-solid-color, var(--yt-spec-additive-background)) !important;
   background-image: none !important;
@@ -63,6 +74,8 @@ html[data-hyt-mode="solid-color"] ytd-rich-item-renderer:not([data-hyt-hover-rev
 html[data-hyt-mode="solid-color"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) img,
 html[data-hyt-mode="solid-color"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) img,
 html[data-hyt-mode="solid-color"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) img,
+html[data-hyt-mode="solid-color"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail > *,
+html[data-hyt-mode="solid-color"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) yt-thumbnail-view-model > *,
 html[data-hyt-mode="solid-color"] ytm-shorts-lockup-view-model:not([data-hyt-hover-revealed="true"]) img {
   opacity: 0 !important;
   background-image: none !important;
@@ -80,6 +93,8 @@ html[data-hyt-preview="disabled"] ytd-rich-item-renderer video,
 html[data-hyt-preview="disabled"] ytd-grid-video-renderer video,
 html[data-hyt-preview="disabled"] ytd-playlist-video-renderer video,
 html[data-hyt-preview="disabled"] ytd-video-renderer video,
+html[data-hyt-preview="disabled"] ytd-compact-video-renderer video,
+html[data-hyt-preview="disabled"] yt-lockup-view-model video,
 html[data-hyt-preview="disabled"] ytd-thumbnail video,
 html[data-hyt-preview="disabled"] ytd-playlist-thumbnail video,
 html[data-hyt-preview="disabled"] yt-thumbnail-view-model video,

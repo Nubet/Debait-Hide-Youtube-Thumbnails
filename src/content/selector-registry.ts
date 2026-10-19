@@ -1,6 +1,7 @@
 export const thumbnailSelectors = {
   standard: [
     "ytd-video-renderer ytd-thumbnail",
+    "ytd-compact-video-renderer ytd-thumbnail",
     "ytd-grid-video-renderer ytd-thumbnail",
     "ytd-rich-item-renderer ytd-thumbnail",
   ],
@@ -17,6 +18,7 @@ export const thumbnailSelectors = {
 
   modern: [
     "yt-thumbnail-view-model",
+    ".ytLockupViewModelContentImage",
     ".yt-lockup-view-model-wiz__content-image",
   ],
 

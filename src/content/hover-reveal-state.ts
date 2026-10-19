@@ -6,6 +6,8 @@ const hoverableSelector = [
   "ytd-rich-item-renderer",
   "ytd-grid-video-renderer",
   "ytd-playlist-video-renderer",
+  "ytd-compact-video-renderer",
+  "yt-lockup-view-model:not(ytd-rich-item-renderer *)",
   "ytm-shorts-lockup-view-model",
 ].join(",")
 

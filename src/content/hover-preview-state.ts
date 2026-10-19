@@ -6,6 +6,8 @@ const previewVideoSelector = [
   "ytd-grid-video-renderer video",
   "ytd-playlist-video-renderer video",
   "ytd-video-renderer video",
+  "ytd-compact-video-renderer video",
+  "yt-lockup-view-model video",
   "ytd-thumbnail video",
   "ytd-playlist-thumbnail video",
   "yt-thumbnail-view-model video",
@@ -22,6 +24,8 @@ const previewContainerSelector = [
   "ytd-grid-video-renderer",
   "ytd-playlist-video-renderer",
   "ytd-video-renderer",
+  "ytd-compact-video-renderer",
+  "yt-lockup-view-model",
   "ytm-shorts-lockup-view-model",
 ].join(",")
 

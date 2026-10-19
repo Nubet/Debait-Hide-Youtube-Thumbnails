@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../src/content/content.css">
+  <style>
+    .ytLockupViewModelHost { display: flex; width: 400px; }
+    .ytLockupViewModelContentImage { display: block; flex-shrink: 0; }
+    yt-thumbnail-view-model { display: block; aspect-ratio: 16 / 9; }
+    .ytThumbnailViewModelImage { width: 100%; height: 100%; background: red; }
+    .ytLockupViewModelMetadata { flex: 1; }
+  </style>
+</head>
+<body>
+  <!-- Watch-page structure, including YouTube's inline thumbnail width. -->
+  <yt-lockup-view-model>
+    <div class="ytLockupViewModelHost ytLockupViewModelHorizontal">
+      <a class="ytLockupViewModelContentImage" style="width: 62.5%" href="#video">
+        <yt-thumbnail-view-model>
+          <div class="ytThumbnailViewModelImage"><img alt=""></div>
+          <yt-thumbnail-bottom-overlay-view-model>26:42</yt-thumbnail-bottom-overlay-view-model>
+          <video></video>
+        </yt-thumbnail-view-model>
+      </a>
+      <div class="ytLockupViewModelMetadata"><h3>Video title</h3><img class="avatar" alt="Channel"></div>
+    </div>
+  </yt-lockup-view-model>
+  <video id="player"></video>
+  <pre id="result">RUNNING</pre>
+  <script>
+    window.addEventListener("load", () => {
+      const root = document.documentElement
+      const card = document.querySelector("yt-lockup-view-model")
+      const link = card.querySelector("a")
+      const thumbnail = card.querySelector("yt-thumbnail-view-model")
+      const image = card.querySelector(".ytThumbnailViewModelImage")
+      const metadata = card.querySelector(".ytLockupViewModelMetadata")
+      function check(condition, message) {
+        if (!condition) throw new Error(message)
+      }
+      try {
+        check(getComputedStyle(link).visibility === "hidden", "Loading must conceal thumbnails")
+        root.dataset.hytReady = "true"
+        root.style.setProperty("--hyt-solid-color", "#123456")
+        check(link.getBoundingClientRect().width === 250, "Normal thumbnail width")
+        for (const mode of ["blurred", "solid-color", "hidden-except-hover", "hidden"]) {
+          root.dataset.hytMode = mode
+          if (mode === "blurred") check(getComputedStyle(thumbnail).filter === "blur(16px)", "Blur missing")
+          if (mode === "solid-color") {
+            check(getComputedStyle(thumbnail).backgroundColor === "rgb(18, 52, 86)", "Solid color missing")
+            for (const child of thumbnail.children) check(getComputedStyle(child).opacity === "0", "Solid color leaks image/overlay")
+          }
+          if (mode === "hidden" || mode === "hidden-except-hover") {
+            check(link.getBoundingClientRect().width === 0, "Hidden thumbnail reserves space")
+            check(metadata.getBoundingClientRect().width === 400, "Metadata must reclaim space")
+          }
+          check(getComputedStyle(card.querySelector(".avatar")).opacity === "1", "Avatar must stay visible")
+          if (mode !== "hidden") {
+            card.dataset.hytHoverRevealed = "true"
+            check(link.getBoundingClientRect().width === 250, "Hover must restore width")
+            check(getComputedStyle(thumbnail).filter === "none", "Hover must remove blur")
+            check(getComputedStyle(image).opacity === "1", "Hover must restore image")
+            delete card.dataset.hytHoverRevealed
+          }
+        }
+        root.dataset.hytPreview = "disabled"
+        check(getComputedStyle(thumbnail.querySelector("video")).display === "none", "Preview must be hidden")
+        check(getComputedStyle(document.querySelector("#player")).display !== "none", "Player must be unaffected")
+        delete root.dataset.hytMode
+        check(link.getBoundingClientRect().width === 250, "Disabling must restore layout")
+        document.querySelector("#result").textContent = "PASS: watch-page thumbnail modes, reveal, layout, previews and player"
+      } catch (error) {
+        document.querySelector("#result").textContent = "FAIL: " + error.message
+      }
+    })
+  </script>
+</body>
+</html>
