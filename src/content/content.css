@@ -22,6 +22,7 @@ html[data-hyt-mode="hidden"] .ytd-display-ad-renderer #media-container {
 html[data-hyt-mode="hidden-except-hover"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] ytd-grid-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] ytd-playlist-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
+html[data-hyt-mode="hidden-except-hover"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] ytd-compact-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail,
 html[data-hyt-mode="hidden-except-hover"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) .ytLockupViewModelContentImage,
 html[data-hyt-mode="hidden-except-hover"] yt-lockup-view-model:not(ytd-rich-item-renderer *):not([data-hyt-hover-revealed="true"]) .yt-lockup-view-model-wiz__content-image,
@@ -35,6 +36,11 @@ html[data-hyt-mode="hidden-except-hover"] ytm-shorts-lockup-view-model:not([data
   min-width: 0 !important;
   opacity: 0 !important;
   overflow: hidden !important;
+}
+
+html[data-hyt-mode="hidden-except-hover"] ytd-video-renderer:not([data-hyt-hover-revealed="true"]) ytd-thumbnail {
+  max-width: 0 !important;
+  min-width: 0 !important;
 }
 
 html[data-hyt-mode="blurred"] ytd-rich-item-renderer:not([data-hyt-hover-revealed="true"]) img,

@@ -15,7 +15,7 @@ describe("HoverRevealState", () => {
     class TestElement {
       public attributes = new Map<string, string>()
       public closest(selector: string) {
-        expect(selector).toContain("yt-lockup-view-model:not(ytd-rich-item-renderer *)")
+        expect(selector).toContain("ytd-video-renderer")
         return this
       }
       public setAttribute(name: string, value: string) { this.attributes.set(name, value) }
