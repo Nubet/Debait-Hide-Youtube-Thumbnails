@@ -104,3 +104,5 @@ export default function mountContentScript(): () => void {
     controller.dispose()
   }
 }
+
+mountContentScript()
